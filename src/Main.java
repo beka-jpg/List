@@ -7,31 +7,46 @@ import static java.lang.System.exit;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Employee> employees = new ArrayList<>();
-        employees.add(new Employee(40, "Архитектур", "Ерлан"));
-        employees.add(new Employee(24, "Официант", "Марсель"));
-        employees.add(new Employee(-12, "Безработный", "Майкл"));
-        employees.add(new Employee(0, "Сад пред", "Бека"));
-        employees.add(new Employee(20, "Менеджер по продажам", "Олег"));
+        ArrayList<Student> students = new ArrayList<>();
 
+        students.add(new Student(18,"Java","Nikita"));
+        students.add(new Student(22,"JavaScript","Olga"));
+        students.add(new Student(21,"Java","Aidai"));
+        students.add(new Student(21,"JavaScript","Nurs"));
+        students.add(new Student(23,"Java","Beka"));
+        students.add(new Student(19,"JavaScript","Aydai"));
+        students.add(new Student(20,"Java","Kiril"));
+        students.add(new Student(17,"JavaScript","Oleg"));
+        students.add(new Student(19,"Java","Mihail"));
+        students.add(new Student(22,"JavaScript","Aidana"));
 
-        Exception myException = new myException("Ошибка в возрасте");
-
-        try {
-           for (Employee employee : employees){
-               if (employee.getAge() <= 0 ){
-                   throw  myException;
-               }
-           }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        } finally {
-            System.out.println("Все");
-//            exit();
+        for (Student student : students){
+            System.out.println(student);
         }
 
+        ArrayList<Student> studentsJava = new ArrayList<>();
+        ArrayList<Student> studentsJavaScript = new ArrayList<>();
+        ArrayList<Student> studentsSortedAge = new ArrayList<>();
+        ArrayList<Student> studentsNamedA = new ArrayList<>();
 
 
+        for (int i = 0 ; i < students.size();  i++){
+            if (students.get(i).getGroup().equals("Java")){
+                studentsJava.add(students.get(i));
+            }
+
+            if (students.get(i).getGroup().equals("JavaScript")){
+                studentsJavaScript.add(students.get(i));
+            }
+
+            if (students.get(i).getAge() >= 19 && students.get(i).getAge() <= 23 ) {
+                studentsSortedAge.add(students.get(i));
+            }
+
+            if(students.get(i).getName().contains("a")){
+                studentsNamedA.add(students.get(i));
+            }
+        }
 
     }
 }
