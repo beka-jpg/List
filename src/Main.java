@@ -1,27 +1,34 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
+
+import static java.lang.System.exit;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Student> students = new ArrayList<>();
-        students.add(new Student(18,"Math","Nikita"));
-        students.add(new Student(22,"Prog","Olga"));
-        students.add(new Student(21,"Math","Aidai"));
-        students.add(new Student(21,"Prog","Nurs"));
-        students.add(new Student(23,"Prog","Beka"));
-        students.add(new Student(19,"Math","Aydai"));
-        students.add(new Student(20,"Math","Kiril"));
-        students.add(new Student(17,"Linguist","Oleg"));
-        students.add(new Student(19,"Linguist","Mihail"));
-        students.add(new Student(22,"Phil","Aidana"));
 
-        for (Student student : students){
-            System.out.println(student);
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee(40, "Архитектур", "Ерлан"));
+        employees.add(new Employee(24, "Официант", "Марсель"));
+        employees.add(new Employee(-12, "Безработный", "Майкл"));
+        employees.add(new Employee(0, "Сад пред", "Бека"));
+        employees.add(new Employee(20, "Менеджер по продажам", "Олег"));
+
+
+        Exception myException = new myException("Ошибка в возрасте");
+
+        try {
+           for (Employee employee : employees){
+               if (employee.getAge() <= 0 ){
+                   throw  myException;
+               }
+           }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Все");
+//            exit();
         }
-
-
-
-
-
 
 
 
